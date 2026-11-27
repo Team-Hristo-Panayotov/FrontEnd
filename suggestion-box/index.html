@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кутия за предложения</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card" aria-labelledby="form-title">
+            <header class="card-header">
+                <h1 id="form-title">Кутия за предложения</h1>
+                <p class="subtitle">Срещнахте проблем или имате идея? Пишете ни.</p>
+            </header>
+
+            <form id="suggestion-form" novalidate>
+                <fieldset class="field">
+                    <legend class="label">Тип на заявката</legend>
+                    <div class="type-toggle" role="radiogroup">
+                        <label class="type-option">
+                            <input type="radio" name="type" value="Problem" required>
+                            <span class="type-pill">
+                                <span class="type-icon" aria-hidden="true">!</span>
+                                Проблем
+                            </span>
+                        </label>
+                        <label class="type-option">
+                            <input type="radio" name="type" value="Suggestion" required>
+                            <span class="type-pill">
+                                <span class="type-icon" aria-hidden="true">+</span>
+                                Предложение
+                            </span>
+                        </label>
+                    </div>
+                    <p class="error" id="type-error" aria-live="polite"></p>
+                </fieldset>
+
+                <div class="field">
+                    <div class="label-row">
+                        <label class="label" for="title">Заглавие</label>
+                        <span class="counter" id="title-counter">0 / 200</span>
+                    </div>
+                    <input type="text" id="title" name="title"
+                           minlength="10" maxlength="200" required
+                           placeholder="Кратко описание в едно изречение"
+                           aria-describedby="title-error">
+                    <p class="error" id="title-error" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                    <div class="label-row">
+                        <label class="label" for="description">Описание</label>
+                        <span class="counter" id="description-counter">0 / 1000</span>
+                    </div>
+                    <textarea id="description" name="description" rows="6"
+                              minlength="10" maxlength="1000" required
+                              placeholder="Опишете подробно проблема или предложението"
+                              aria-describedby="description-error"></textarea>
+                    <p class="error" id="description-error" aria-live="polite"></p>
+                </div>
+
+                <button type="submit" class="submit" id="submit-button">
+                    <span class="submit-text">Изпрати</span>
+                    <span class="spinner" aria-hidden="true"></span>
+                </button>
+            </form>
+
+            <div class="success" id="success-message" role="status" hidden>
+                <div class="success-icon" aria-hidden="true">&#10003;</div>
+                <h2>Съобщението е изпратено!</h2>
+                <p>Благодарим ви. Заявката ви беше получена и вече не може да бъде изпратена отново.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
